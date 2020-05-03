@@ -1,0 +1,44 @@
+canvas {
+  border: 1px solid silver;
+  float: left;
+}
+h1 {
+	font-family: 'Coming Soon', cursive;
+	font-size: 40;
+}
+img {
+  width: 50px;
+  height: 50px;
+}
+
+.action{
+	cursor: pointer;
+	border: 2px solid transparent;
+}
+
+.action.active,
+.action:hover{
+	border-color: rgba(28,38,227,1);
+}
+
+#divEdicion {
+	width: 15%;
+	padding: 50px 0;
+	text-align: center;
+	background-color: lightblue;
+	margin-top: 20px;
+	float: left;
+	display: block;
+}
+
+#divAnimacion {
+	width: 15%;
+	padding: 50px 0;
+	text-align: center;
+	background-color: rgb(221, 153, 218);
+	margin-top: 20px;
+	float: left;
+	display: none;
+	/* display: inline; */
+}
+
