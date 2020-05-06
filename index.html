@@ -16,37 +16,236 @@
     function toggleEdit() {
       document.getElementById("divEdicion").style.display = "block";
       document.getElementById("divAnimacion").style.display = "none";
+      document.getElementById("divEdicionFigura").style.display = "none";
+      document.getElementById("divEdicionFigura").style.display = "none";
+      document.getElementById("square-fig").style.display = "none";
+      document.getElementById("sphere-fig").style.display = "none";
+      document.getElementById("cylinder-fig").style.display = "none";
+      document.getElementById("cone-fig").style.display = "none";
+      document.getElementById("tetrahedron-fig").style.display = "none";
+      document.getElementById("torus-fig").style.display = "none";
+      document.getElementById("torusknot-fig").style.display = "none";
+      document.getElementById("icosahedron-fig").style.display = "none";
+      document.getElementById("dodecahedron-fig").style.display = "none";
+      document.getElementById("octahedron-fig").style.display = "none";
+      document.getElementById("divBorrarFigura").style.display = "none";
     }
     function toggleAnimation() {
       document.getElementById("divEdicion").style.display = "none";
       document.getElementById("divAnimacion").style.display = "block";
+      document.getElementById("divEdicionFigura").style.display = "none";
+      document.getElementById("square-fig").style.display = "none";
+      document.getElementById("sphere-fig").style.display = "none";
+      document.getElementById("cylinder-fig").style.display = "none";
+      document.getElementById("cone-fig").style.display = "none";
+      document.getElementById("tetrahedron-fig").style.display = "none";
+      document.getElementById("torus-fig").style.display = "none";
+      document.getElementById("torusknot-fig").style.display = "none";
+      document.getElementById("icosahedron-fig").style.display = "none";
+      document.getElementById("dodecahedron-fig").style.display = "none";
+      document.getElementById("octahedron-fig").style.display = "none";
+      document.getElementById("divBorrarFigura").style.display = "none";
+    }
+    function toggleSquare() {
+      document.getElementById("divEdicion").style.display = "none";
+      document.getElementById("divEdicionFigura").style.display = "block";
+      document.getElementById("square-fig").style.display = "block";
+    }
+    function toggleSphere(){
+      document.getElementById("divEdicion").style.display = "none";
+      document.getElementById("divEdicionFigura").style.display = "block";
+      document.getElementById("sphere-fig").style.display = "block";
+    }
+    function toggleCylinder() {
+      document.getElementById("divEdicion").style.display = "none";
+      document.getElementById("divEdicionFigura").style.display = "block";
+      document.getElementById("cylinder-fig").style.display = "block";
+    }
+    function toggleCone() {
+      document.getElementById("divEdicion").style.display = "none";
+      document.getElementById("divEdicionFigura").style.display = "block";
+      document.getElementById("cone-fig").style.display = "block";
+    }
+    function toggleTetrahedron() {
+      document.getElementById("divEdicion").style.display = "none";
+      document.getElementById("divEdicionFigura").style.display = "block";
+      document.getElementById("tetrahedron-fig").style.display = "block";
+    }
+    function toggleTorus() {
+      document.getElementById("divEdicion").style.display = "none";
+      document.getElementById("divEdicionFigura").style.display = "block";
+      document.getElementById("torus-fig").style.display = "block";
+    }
+    function toggleTorusKnot() {
+      document.getElementById("divEdicion").style.display = "none";
+      document.getElementById("divEdicionFigura").style.display = "block";
+      document.getElementById("torusknot-fig").style.display = "block";
+    }
+    function toggleIcosahedron() {
+      document.getElementById("divEdicion").style.display = "none";
+      document.getElementById("divEdicionFigura").style.display = "block";
+      document.getElementById("icosahedron-fig").style.display = "block";
+    }
+    function toggleDodecahedron() {
+      document.getElementById("divEdicion").style.display = "none";
+      document.getElementById("divEdicionFigura").style.display = "block";
+      document.getElementById("dodecahedron-fig").style.display = "block";
+    }
+    function toggleOctahedron() {
+      document.getElementById("divEdicion").style.display = "none";
+      document.getElementById("divEdicionFigura").style.display = "block";
+      document.getElementById("octahedron-fig").style.display = "block";
+    }
+    function toggleDelete() {
+      document.getElementById("divEdicion").style.display = "none";
+      document.getElementById("divAnimacion").style.display = "none";
+      document.getElementById("divEdicionFigura").style.display = "none";
+      document.getElementById("square-fig").style.display = "none";
+      document.getElementById("sphere-fig").style.display = "none";
+      document.getElementById("cylinder-fig").style.display = "none";
+      document.getElementById("cone-fig").style.display = "none";
+      document.getElementById("tetrahedron-fig").style.display = "none";
+      document.getElementById("torus-fig").style.display = "none";
+      document.getElementById("torusknot-fig").style.display = "none";
+      document.getElementById("icosahedron-fig").style.display = "none";
+      document.getElementById("dodecahedron-fig").style.display = "none";
+      document.getElementById("octahedron-fig").style.display = "none";
+      document.getElementById("divBorrarFigura").style.display = "block";
     }
   </script>
+  <div id="divEdicionFigura">
+    <button id="button-back" onclick="toggleEdit()">Back</button>
+    <br>
+    <b>Color</b>
+    <br><input id="color-palette" class="action" src="imgs/pallete.png" type="color" name="name" value="#ffffff" onclick="toolsEventHandler('10');" onchange="toolsEventHandler('10');">
+    <br>
+    <b>Posicion</b>
+        <br>
+        x:<input id="text-x" type="text" value="0" size="5" style="text-align:right;">
+        <br>
+        y:<input id="text-y" type="text" value="0" size="5" style="text-align:right;">
+        <br>
+        z:<input id="text-z" type="text" value="0" size="5" style="text-align:right;">
+        <br>
+    <b>Tamaño</b>
+      <br>
+      <div id="square-fig">
+        Base Cubo:<input id="base-square" type="text" value="1" size="5" style="text-align:right;">
+        <br>
+        <b>Crear Figura</b>
+        <br>
+        <button id="btn-create" onclick="createCube();toggleEdit();">Ok</button>  
+      </div>
+      <div id="sphere-fig">
+        Radio Esfera:<input id="sphere-radius" type="text" value="1" size="5" style="text-align:right;">
+        <br>
+        <b>Crear Figura</b>
+        <br>
+        <button id="btn-create" onclick="createSphere();toggleEdit();">Ok</button>  
+      </div>
+      <div id="cylinder-fig">
+        Tamaño Cilindro:<input id="cylinder-size" type="text" value="1" size="5" style="text-align:right;">
+        <br>
+        <b>Crear Figura</b>
+        <br>
+        <button id="btn-create" onclick="createCylinder();toggleEdit();">Ok</button>  
+      </div>
+      <div id="cone-fig">
+        Tamaño Cono:<input id="cone-size" type="text" value="1" size="5" style="text-align:right;">
+        <br>
+        <b>Crear Figura</b>
+        <br>
+        <button id="btn-create" onclick="createCone();toggleEdit();">Ok</button>  
+      </div>
+      <div id="tetrahedron-fig">
+        Tamaño Tetrahedro:<input id="tetrahedron-size" type="text" value="1" size="5" style="text-align:right;">
+        <br>
+        <b>Crear Figura</b>
+        <br>
+        <button id="btn-create" onclick="createTetrahedron();toggleEdit();">Ok</button>  
+      </div>
+      <div id="torus-fig">
+        Tamaño Torus:<input id="torus-size" type="text" value="1" size="5" style="text-align:right;">
+        <br>
+        <b>Crear Figura</b>
+        <br>
+        <button id="btn-create" onclick="createTorus();toggleEdit();">Ok</button>  
+      </div>
+      <div id="torusknot-fig">
+        Tamaño Nudo Torus:<input id="torusknot-size" type="text" value="1" size="5" style="text-align:right;">
+        <br>
+        <b>Crear Figura</b>
+        <br>
+        <button id="btn-create" onclick="createTorusKnot();toggleEdit();">Ok</button>  
+      </div>
+      <div id="icosahedron-fig">
+        Tamaño Icosahedro:<input id="icosahedron-size" type="text" value="1" size="5" style="text-align:right;">
+        <br>
+        <b>Crear Figura</b>
+        <br>
+        <button id="btn-create" onclick="createIcosahedron();toggleEdit();">Ok</button>  
+      </div>
+      <div id="dodecahedron-fig">
+        Tamaño Dodecahedro:<input id="dodecahedron-size" type="text" value="1" size="5" style="text-align:right;">
+        <br>
+        <b>Crear Figura</b>
+        <br>
+        <button id="btn-create" onclick="createDodecahedron();toggleEdit();">Ok</button>  
+      </div>
+      <div id="octahedron-fig">
+        Tamaño Octahedro:<input id="octahedron-size" type="text" value="1" size="5" style="text-align:right;">
+        <br>
+        <b>Crear Figura</b>
+        <br>
+        <button id="btn-create" onclick="createOctahedron();toggleEdit();">Ok</button>  
+      </div>
+  </div>
+  <div id="divBorrarFigura">
+    <button id="button-back" onclick="toggleEdit()">Back</button>
+    <br><br>
+    <button id="button-delete" style="margin: 10px; width: 30%; height: 5%;" onclick="deleteFigure('cube')">Delete Cube</button>
+    <button id="button-delete" style="margin: 10px; width: 30%; height: 5%;" onclick="deleteFigure('sphere')">Delete Sphere</button>
+    <br>
+    <button id="button-delete" style="margin: 10px; width: 30%; height: 5%;" onclick="deleteFigure('cylinder')">Delete Cylinder</button>
+    <button id="button-delete" style="margin: 10px; width: 30%; height: 5%;" onclick="deleteFigure('cone')">Delete Cone</button>
+    <br>
+    <button id="button-delete" style="margin: 10px; width: 30%; height: 5%;" onclick="deleteFigure('tetrahedron')">Delete Tetrahedron</button>
+    <button id="button-delete" style="margin: 10px; width: 30%; height: 5%;" onclick="deleteFigure('torus')">Delete Torus</button>
+    <br>
+    <button id="button-delete" style="margin: 10px; width: 30%; height: 5%;" onclick="deleteFigure('torusknot')">Delete Torus Knot</button>
+    <button id="button-delete" style="margin: 10px; width: 30%; height: 5%;" onclick="deleteFigure('icosahedron')">Delete Icosahedron</button>
+    <br>
+    <button id="button-delete" style="margin: 10px; width: 30%; height: 5%;" onclick="deleteFigure('dodecahedron')">Delete Dodecahedron</button>
+    <button id="button-delete" style="margin: 10px; width: 30%; height: 5%;" onclick="deleteFigure('octahedron')">Delete Octahedron</button>
+  </div>
   <div id="divEdicion">
     <table>
       <tr>
-        <td><img id="img-selector" class="action" src="imgs/selector.png" alt="" onclick="toolsEventHandler('0');"/></td>
-        <td><img id="img-point" class="action" src="imgs/cube.png" alt="" onclick="toolsEvent('1');"/></td>
+        <td><img id="img-plane-on" class="action" src="imgs/planeOn.png" alt="" onclick="planeOn();"/></td>
+        <td><img id="img-plane-off" class="action" src="imgs/planeOff.png" alt="" onclick="planeOff();"/></td>
       </tr>
       <tr>
-        <td><img id="img-eraser" class="action" src="imgs/eraser.png" alt="" onclick="toolsEventHandler('2');"></td>
-        <td><img id="img-segment" class="action" src="imgs/logo.png" alt="" onclick="toolsEventHandler('3');"/></td>
+        <td><img id="img-point" class="action" src="imgs/Box.png" alt="" onclick="toggleSquare();"/></td>
+        <td><img id="img-point" class="action" src="imgs/Sphere.png" alt="" onclick="toggleSphere();"/></td>
       </tr>
       <tr>
-        <td><img id="img-clear-all" class="action" src="imgs/logo.png" alt="" onclick="toolsEventHandler('4');"/></td>
-        <td><img id="img-triangle" class="action" src="imgs/logo.png" alt="" onclick="toolsEventHandler('5');"/></td>
+        <td><img id="img-polygon" class="action" src="imgs/Cilinder.png" alt="" onclick="toggleCylinder();"/></td>
+        <td><img id="img-triangle" class="action" src="imgs/Cone.png" alt="" onclick="toggleCone();"/></td>
       </tr>
       <tr>
-        <td><img id="img-line-width" class="action" src="imgs/logo.png" alt="" onclick="toolsEventHandler('6');"/></td>
-        <td><img id="img-rectangle" class="action" src="imgs/logo.png" alt="" onclick="toolsEventHandler('7');"/></td>
+        <td><img id="img-line-width" class="action" src="imgs/Tetrahedron.png" alt="" onclick="toggleTetrahedron();"/></td>
+        <td><img id="img-rectangle" class="action" src="imgs/Torus.png" alt="" onclick="toggleTorus();"/></td>
       </tr>
       <tr>
-        <td><img id="img-fill-polygon" class="action" src="imgs/logo.png" alt="" onclick="toolsEventHandler('8');"/></td>
-        <td><img id="img-circle" class="action" src="imgs/logo.png" alt="" onclick="toolsEventHandler('9');"/></td>
+        <td><img id="img-fill-polygon" class="action" src="imgs/TorusKnot.png" alt="" onclick="toggleTorusKnot();"/></td>
+        <td><img id="img-circle" class="action" src="imgs/Icosahedron.png" alt="" onclick="toggleIcosahedron();"/></td>
       </tr>
       <tr>
-        <td><input id="color-palette" class="action" src="imgs/pallete.png" type="color" name="name" value="#000000" onclick="toolsEventHandler('10');" onchange="colorPaletteEvent();"></td>
-        <td><img id="img-polygon" class="action" src="imgs/logo.png" alt="" onclick="toolsEventHandler('11');"/></td>
+        <td><img id="img-fill-polygon" class="action" src="imgs/Dodecahedron.png" alt="" onclick="toggleDodecahedron();"/></td>
+        <td><img id="img-circle" class="action" src="imgs/Octahedron.png" alt="" onclick="toggleOctahedron();"/></td>
+      </tr>
+      <tr>
+        <td><img id="img-eraser" class="action" src="imgs/eraser.png" alt="" onclick="toggleDelete();"/></td>
       </tr>
     </table>
   </div>
