@@ -8,13 +8,21 @@ var mesh;
 var sceneReady = false;
 var arr = [];
 var hasPlane = false;
-var cubos, esferas;
+var cubos, esferas, cilindros, conos, tetrahedros, torus, torusknots, icosahedrons, dodecahedrons, octahedrons;
 var color;
 
 function main()
 {
     cubos = 0;
     esferas = 0;
+    cilindros = 0;
+    conos=0;
+    tetrahedros=0;
+    torus=0;
+    torusknots = 0;
+    icosahedrons=0;
+    dodecahedrons=0;
+    octahedrons=0;
     color = document.getElementById("color-palette").value;
     // RENDERER
     canvas = document.getElementById("canvas");
@@ -37,7 +45,7 @@ function main()
     scene.add(light);
 
     // EVENTS
-    initEventHandler();
+    // initEventHandler();
 
     // ACTION
     requestAnimationFrame(renderLoop);              // RENDER LOOP

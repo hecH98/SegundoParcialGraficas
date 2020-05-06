@@ -7,8 +7,8 @@ h1 {
 	font-size: 40;
 }
 img {
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
 }
 
 .action{
@@ -22,7 +22,7 @@ img {
 }
 
 #divEdicion {
-	width: 15%;
+	width: 20%;
 	padding: 50px 0;
 	text-align: center;
 	background-color: lightblue;
@@ -32,7 +32,7 @@ img {
 }
 
 #divEdicionFigura {
-	width: 15%;
+	width: 20%;
 	padding: 50px 0;
 	text-align: center;
 	background-color: lightblue;
@@ -42,7 +42,7 @@ img {
 }
 
 #divBorrarFigura {
-	width: 15%;
+	width: 20%;
 	padding: 50px 0;
 	text-align: center;
 	background-color: lightblue;
@@ -54,15 +54,41 @@ img {
 #square-fig {
 	display: none;
 }
+#sphere-fig {
+	display: none;
+}
+#cylinder-fig {
+	display: none;
+}
+#cone-fig {
+	display: none;
+}
+#tetrahedron-fig {
+	display: none;
+}
+#torus-fig {
+	display: none;
+}
+#torusknot-fig {
+	display: none;
+}
+#icosahedron-fig {
+	display: none;
+}
+#dodecahedron-fig {
+	display: none;
+}
+#octahedron-fig {
+	display: none;
+}
 
 #divAnimacion {
-	width: 15%;
+	width: 20%;
 	padding: 50px 0;
 	text-align: center;
 	background-color: rgb(221, 153, 218);
 	margin-top: 20px;
 	float: left;
 	display: none;
-	/* display: inline; */
 }
 
