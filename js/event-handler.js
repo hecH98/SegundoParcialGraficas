@@ -93,6 +93,12 @@ function createCylinder(){
   sceneReady = true;
 }
 
+function crearObjetoCompuesto() {
+  var g = new geometru();
+  g.name = "geometriaCompuesta" = geometriasCompuestas++;
+  arr.push({"obj" : g, "figura" : "geometriaCompuesta"});
+}
+
 function createCone(){
   var geometry = new THREE.ConeGeometry();
   var material = new THREE.MeshBasicMaterial( {color: color} );

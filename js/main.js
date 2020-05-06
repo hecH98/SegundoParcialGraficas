@@ -8,7 +8,7 @@ var mesh;
 var sceneReady = false;
 var arr = [];
 var hasPlane = false;
-var cubos, esferas, cilindros, conos, tetrahedros, torus, torusknots, icosahedrons, dodecahedrons, octahedrons;
+var cubos, esferas, cilindros, conos, tetrahedros, torus, torusknots, icosahedrons, dodecahedrons, octahedrons, geometriasCompuestas;
 var color;
 
 function main()
@@ -23,6 +23,7 @@ function main()
     icosahedrons=0;
     dodecahedrons=0;
     octahedrons=0;
+    geometriasCompuestas=0;
     
     color = document.getElementById("color-palette").value;
     // RENDERER
