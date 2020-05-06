@@ -16,24 +16,100 @@
     function toggleEdit() {
       document.getElementById("divEdicion").style.display = "block";
       document.getElementById("divAnimacion").style.display = "none";
+      document.getElementById("divEdicionFigura").style.display = "none";
+      document.getElementById("divEdicionFigura").style.display = "none";
+      document.getElementById("square-fig").style.display = "none";
+      document.getElementById("divBorrarFigura").style.display = "none";
     }
     function toggleAnimation() {
       document.getElementById("divEdicion").style.display = "none";
       document.getElementById("divAnimacion").style.display = "block";
+      document.getElementById("divEdicionFigura").style.display = "none";
+      document.getElementById("square-fig").style.display = "none";
+      document.getElementById("divBorrarFigura").style.display = "none";
+    }
+    function toggleSquare() {
+      document.getElementById("divEdicion").style.display = "none";
+      document.getElementById("divAnimacion").style.display = "none";
+      document.getElementById("divEdicionFigura").style.display = "block";
+      document.getElementById("square-fig").style.display = "block";
+      document.getElementById("sphere-fig").style.display = "none";
+      document.getElementById("divBorrarFigura").style.display = "none";
+    }
+    function toggleSphere(){
+      document.getElementById("divEdicion").style.display = "none";
+      document.getElementById("divAnimacion").style.display = "none";
+      document.getElementById("divEdicionFigura").style.display = "block";
+      document.getElementById("square-fig").style.display = "none";
+      document.getElementById("sphere-fig").style.display = "block";
+      document.getElementById("divBorrarFigura").style.display = "none";
+    }
+    function toggleDelete() {
+      document.getElementById("divEdicion").style.display = "none";
+      document.getElementById("divAnimacion").style.display = "none";
+      document.getElementById("divEdicionFigura").style.display = "none";
+      document.getElementById("square-fig").style.display = "none";
+      document.getElementById("sphere-fig").style.display = "none";
+      document.getElementById("divBorrarFigura").style.display = "block";
     }
   </script>
+  <div id="divEdicionFigura">
+    <button id="button-back" onclick="toggleEdit()">Back</button>
+    <br>
+    <b>Color</b>
+    <br><input id="color-palette" class="action" src="imgs/pallete.png" type="color" name="name" value="#ffffff" onclick="toolsEventHandler('10');" onchange="toolsEventHandler('10');">
+    <br>
+    <b>Posicion</b>
+        <br>
+        x:<input id="text-x" type="text" value="0" size="5" style="text-align:right;">
+        <br>
+        y:<input id="text-y" type="text" value="0" size="5" style="text-align:right;">
+        <br>
+        z:<input id="text-z" type="text" value="0" size="5" style="text-align:right;">
+        <br>
+    <b>Tamaño</b>
+      <br>
+      <div id="square-fig">
+        base:<input id="base-square" type="text" value="1" size="5" style="text-align:right;">
+        <br>
+        <b>Crear Figura</b>
+        <br>
+        <button id="btn-square" onclick="createCube();toggleEdit();">Ok</button>  
+      </div>
+      <div id="sphere-fig">
+        radio:<input id="sphere-radius" type="text" value="1" size="5" style="text-align:right;">
+        <br>
+        <b>Crear Figura</b>
+        <br>
+        <button id="btn-square" onclick="createSphere();toggleEdit();">Ok</button>  
+      </div>
+  </div>
+  <div id="divBorrarFigura">
+    <button id="button-back" onclick="toggleEdit()">Back</button>
+    <br><br>
+    <b>Borrar Cubo</b>
+    <br><button id="button-back" onclick="deleteCube()">Delete</button>
+    <br><br>
+    <b>Borrar Esfera</b>
+    <br>
+    <button id="button-back" onclick="toggleEdit()">Delete</button>
+    <br><br>
+    <b>Borrar x</b>
+    <br><button id="button-back" onclick="toggleEdit()">Delete</button>
+    <br>
+  </div>
   <div id="divEdicion">
     <table>
       <tr>
-        <td><img id="img-selector" class="action" src="imgs/selector.png" alt="" onclick="toolsEventHandler('0');"/></td>
-        <td><img id="img-point" class="action" src="imgs/cube.png" alt="" onclick="toolsEvent('1');"/></td>
+        <td><img id="img-plane-on" class="action" src="imgs/planeOn.png" alt="" onclick="planeOn();"/></td>
+        <td><img id="img-plane-off" class="action" src="imgs/planeOff.png" alt="" onclick="planeOff();"/></td>
       </tr>
       <tr>
-        <td><img id="img-eraser" class="action" src="imgs/eraser.png" alt="" onclick="toolsEventHandler('2');"></td>
-        <td><img id="img-segment" class="action" src="imgs/logo.png" alt="" onclick="toolsEventHandler('3');"/></td>
+        <td><img id="img-point" class="action" src="imgs/cube.png" alt="" onclick="toggleSquare();"/></td>
+        <td><img id="img-point" class="action" src="imgs/cube.png" alt="" onclick="toggleSphere();"/></td>
       </tr>
       <tr>
-        <td><img id="img-clear-all" class="action" src="imgs/logo.png" alt="" onclick="toolsEventHandler('4');"/></td>
+        <td><img id="img-polygon" class="action" src="imgs/logo.png" alt="" onclick="toolsEventHandler('4');"/></td>
         <td><img id="img-triangle" class="action" src="imgs/logo.png" alt="" onclick="toolsEventHandler('5');"/></td>
       </tr>
       <tr>
@@ -45,8 +121,8 @@
         <td><img id="img-circle" class="action" src="imgs/logo.png" alt="" onclick="toolsEventHandler('9');"/></td>
       </tr>
       <tr>
-        <td><input id="color-palette" class="action" src="imgs/pallete.png" type="color" name="name" value="#000000" onclick="toolsEventHandler('10');" onchange="colorPaletteEvent();"></td>
-        <td><img id="img-polygon" class="action" src="imgs/logo.png" alt="" onclick="toolsEventHandler('11');"/></td>
+        <td><img id="img-selector" class="action" src="imgs/selector.png" alt="" onclick="toolsEventHandler('2');"/></td>
+        <td><img id="img-eraser" class="action" src="imgs/eraser.png" alt="" onclick="toggleDelete();"/></td>
       </tr>
     </table>
   </div>
