@@ -23,6 +23,7 @@ function main()
     icosahedrons=0;
     dodecahedrons=0;
     octahedrons=0;
+    
     color = document.getElementById("color-palette").value;
     // RENDERER
     canvas = document.getElementById("canvas");
