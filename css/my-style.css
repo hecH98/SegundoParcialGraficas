@@ -51,6 +51,23 @@ img {
 	display: none;
 }
 
+#divEditarFigura {
+	width: 20%;
+	padding: 50px 0;
+	text-align: center;
+	background-color: lightblue;
+	margin-top: 20px;
+	float: left;
+	display: none;
+}
+
+#comboBox {
+	width: 45%;
+}
+#comboBoxEdit {
+	width: 45%;
+}
+
 #square-fig {
 	display: none;
 }

@@ -36,7 +36,8 @@ function toolsEventHandler(evt) {
 
 function createCube() {
   var geometry = new THREE.BoxGeometry();
-  var material = new THREE.MeshBasicMaterial({color: color});
+  var isWire = document.getElementById("radio-wire").checked;
+  var material = new THREE.MeshBasicMaterial({color: color, wireframe: isWire });
   var cube = new THREE.Mesh(geometry, material);
   cube.name="cubos" + cubos++;
   var x = parseFloat(document.getElementById("text-x").value);
@@ -51,13 +52,16 @@ function createCube() {
   cube.scale.set(base, base, base);
   scene.add(cube);
   arr.push({"obj" : cube, "figura" : "cube"});
+  addCombo(cube.name);
+  addComboEdit(cube.name);
   mesh = cube;
   sceneReady = true;
 }
 
 function createSphere() {
   var geometry = new THREE.SphereGeometry();
-  var material = new THREE.MeshBasicMaterial( {color: color} );
+  var isWire = document.getElementById("radio-wire").checked;
+  var material = new THREE.MeshBasicMaterial( {color: color, wireframe: isWire } );
   var sphere = new THREE.Mesh( geometry, material );
   sphere.name = "esferas" + esferas++;
   var x = parseFloat(document.getElementById("text-x").value);
@@ -72,13 +76,16 @@ function createSphere() {
   sphere.scale.set(radius, radius, radius);
   scene.add(sphere);
   arr.push({"obj" : sphere, "figura" : "sphere"});
+  addCombo(sphere.name);
+  addComboEdit(sphere.name);
   mesh = sphere;
   sceneReady = true;
 }
 
 function createCylinder(){
   var geometry = new THREE.CylinderGeometry();
-  var material = new THREE.MeshBasicMaterial( {color: color} );
+  var isWire = document.getElementById("radio-wire").checked;
+  var material = new THREE.MeshBasicMaterial( {color: color, wireframe: isWire } );
   var cylinder = new THREE.Mesh( geometry, material );
   cylinder.name = "cilindros" + cilindros++;
   var x = parseFloat(document.getElementById("text-x").value);
@@ -89,19 +96,22 @@ function createCylinder(){
   cylinder.scale.set(size, size, size);
   scene.add( cylinder );
   arr.push({"obj" : cylinder, "figura" : "cylinder"});
+  addCombo(cylinder.name);
+  addComboEdit(cylinder.name);
   mesh = cylinder;
   sceneReady = true;
 }
 
 function crearObjetoCompuesto() {
-  var g = new geometru();
-  g.name = "geometriaCompuesta" = geometriasCompuestas++;
-  arr.push({"obj" : g, "figura" : "geometriaCompuesta"});
+  // var g = new geometru();
+  // g.name = "geometriaCompuesta" = geometriasCompuestas++;
+  // arr.push({"obj" : g, "figura" : "geometriaCompuesta"});
 }
 
 function createCone(){
   var geometry = new THREE.ConeGeometry();
-  var material = new THREE.MeshBasicMaterial( {color: color} );
+  var isWire = document.getElementById("radio-wire").checked;
+  var material = new THREE.MeshBasicMaterial( {color: color, wireframe: isWire } );
   var cone = new THREE.Mesh( geometry, material );
   cone.name = "conos" + conos++;
   var x = parseFloat(document.getElementById("text-x").value);
@@ -112,13 +122,16 @@ function createCone(){
   cone.scale.set(size, size, size);
   scene.add( cone );
   arr.push({"obj" : cone, "figura" : "cone"});
+  addCombo(cone.name);
+  addComboEdit(cone.name);
   mesh = cone;
   sceneReady = true;
 }
 
 function createTetrahedron(){
   var geometry = new THREE.TetrahedronGeometry();
-  var material = new THREE.MeshBasicMaterial( {color: color} );
+  var isWire = document.getElementById("radio-wire").checked;
+  var material = new THREE.MeshBasicMaterial( {color: color, wireframe: isWire } );
   var tetrahedron = new THREE.Mesh( geometry, material );
   tetrahedron.name = "tetrahedros" + tetrahedros++;
   var x = parseFloat(document.getElementById("text-x").value);
@@ -129,13 +142,16 @@ function createTetrahedron(){
   tetrahedron.scale.set(size, size, size);
   scene.add( tetrahedron );
   arr.push({"obj" : tetrahedron, "figura" : "tetrahedron"});
+  addCombo(tetrahedron.name);
+  addComboEdit(tetrahedron.name);
   mesh = tetrahedron;
   sceneReady = true;
 }
 
 function createTorus(){
   var geometry = new THREE.TorusGeometry();
-  var material = new THREE.MeshBasicMaterial( { color: color } );
+  var isWire = document.getElementById("radio-wire").checked;
+  var material = new THREE.MeshBasicMaterial( { color: color, wireframe: isWire  } );
   var torus2 = new THREE.Mesh( geometry, material );
   torus2.name = "torus" + torus++;
   var x = parseFloat(document.getElementById("text-x").value);
@@ -146,13 +162,16 @@ function createTorus(){
   torus2.scale.set(size, size, size);
   scene.add( torus2 );
   arr.push({"obj" : torus2, "figura" : "torus"});
+  addCombo(torus2.name);
+  addComboEdit(torus2.name);
   mesh = torus2;
   sceneReady = true;
 }
 
 function createTorusKnot(){
   var geometry = new THREE.TorusKnotGeometry();
-  var material = new THREE.MeshBasicMaterial( { color: color } );
+  var isWire = document.getElementById("radio-wire").checked;
+  var material = new THREE.MeshBasicMaterial( { color: color, wireframe: isWire  } );
   var torusknot = new THREE.Mesh( geometry, material );
   torusknot.name = "torusknot" + torusknots++;
   var x = parseFloat(document.getElementById("text-x").value);
@@ -163,13 +182,16 @@ function createTorusKnot(){
   torusknot.scale.set(size, size, size);
   scene.add( torusknot );
   arr.push({"obj" : torusknot, "figura" : "torusknot"});
+  addCombo(torusknot.name);
+  addComboEdit(torusknot.name);
   mesh = torusknot;
   sceneReady = true;
 }
 
 function createIcosahedron(){
   var geometry = new THREE.IcosahedronGeometry();
-  var material = new THREE.MeshBasicMaterial( { color: color } );
+  var isWire = document.getElementById("radio-wire").checked;
+  var material = new THREE.MeshBasicMaterial( { color: color, wireframe: isWire  } );
   var icosahedron = new THREE.Mesh( geometry, material );
   icosahedron.name = "icosahedron" + icosahedrons++;
   var x = parseFloat(document.getElementById("text-x").value);
@@ -180,13 +202,16 @@ function createIcosahedron(){
   icosahedron.scale.set(size, size, size);
   scene.add( icosahedron );
   arr.push({"obj" : icosahedron, "figura" : "icosahedron"});
+  addCombo(icosahedron.name);
+  addComboEdit(icosahedron.name);
   mesh = icosahedron;
   sceneReady = true;
 }
 
 function createDodecahedron(){
   var geometry = new THREE.DodecahedronGeometry();
-  var material = new THREE.MeshBasicMaterial( { color: color } );
+  var isWire = document.getElementById("radio-wire").checked;
+  var material = new THREE.MeshBasicMaterial( { color: color, wireframe: isWire} );
   var dodecahedron = new THREE.Mesh( geometry, material );
   dodecahedron.name = "icosahedron" + dodecahedrons++;
   var x = parseFloat(document.getElementById("text-x").value);
@@ -197,13 +222,16 @@ function createDodecahedron(){
   dodecahedron.scale.set(size, size, size);
   scene.add( dodecahedron );
   arr.push({"obj" : dodecahedron, "figura" : "dodecahedron"});
+  addCombo(dodecahedron.name);
+  addComboEdit(dodecahedron.name);
   mesh = dodecahedron;
   sceneReady = true;
 }
 
 function createOctahedron(){
   var geometry = new THREE.OctahedronGeometry();
-  var material = new THREE.MeshBasicMaterial( { color: color } );
+  var isWire = document.getElementById("radio-wire").checked;
+  var material = new THREE.MeshBasicMaterial( { color: color, wireframe: isWire } );
   var octahedron = new THREE.Mesh( geometry, material );
   octahedron.name = "octahedron" + octahedrons++;
   var x = parseFloat(document.getElementById("text-x").value);
@@ -214,6 +242,8 @@ function createOctahedron(){
   octahedron.scale.set(size, size, size);
   scene.add( octahedron );
   arr.push({"obj" : octahedron, "figura" : "octahedron"});
+  addCombo(octahedron.name);
+  addComboEdit(octahedron.name);
   mesh = octahedron;
   sceneReady = true;
 }
@@ -223,6 +253,7 @@ function planeOn() {
     var planeGeometry = new THREE.PlaneGeometry(10, 10, 10, 10);
     var planeMaterial = new THREE.MeshBasicMaterial({color: "white", wireframe: true});
     var plane = new THREE.Mesh(planeGeometry, planeMaterial);
+    plane.name = "piso0"
     plane.rotation.x = -0.5 * Math.PI; 
     scene.add(plane);
     arr.push({"obj" : plane, "figura" : "plane"});
@@ -234,14 +265,14 @@ function planeOn() {
 function planeOff() {
   if(hasPlane){
     for (var i = 0; i < arr.length; i++){
-      if (arr[i].figura == "plane"){
+      if (arr[i].obj.name == "piso0"){
         console.log(arr[i].obj);
         var plane = arr[i].obj;
         arr.splice(i);
         break;
       } 
     }
-    scene.remove(plane);
+    scene.remove(scene.getObjectByName("piso0"));
     hasPlane = false;
   }
 }
@@ -254,22 +285,69 @@ function printElements() {
   scene.dispose();
 }
 
-function deleteFigure(figura){
-  console.log(arr.length);
-  console.log(arr[arr.length-1]);
-  var contador = arr.length-1;
-  console.log(contador);
-  for (var i = contador; i >= 0; i--){
-    if (arr[i].figura == figura){
+function addCombo(name) {
+  if(arr.length < 1) return;
+  var combo = document.getElementById("comboBox");
+  if(name !== "piso0"){
+    var option = document.createElement("option");
+    option.text = name;
+    option.value = name;
+    try {
+        combo.add(option, null); //Standard
+    }catch(error) {
+        combo.add(option); // IE only
+    }
+  }
+}
+
+function addComboEdit(name) {
+  if(arr.length < 1) return;
+  var combo2 = document.getElementById("comboBoxEdit");
+  if(name !== "piso0"){
+    var option2 = document.createElement("option");
+    option2.text = name;
+    option2.value = name;
+    try {
+        combo2.add(option2, null); //Standard
+    }catch(error) {
+        combo2.add(option2); // IE only
+    }
+  }
+}
+
+function deleteFigure(){
+  var name = document.getElementById("comboBox").value;
+  console.log(name);
+  if(name === "") return;
+  var i;
+  for ( i= 0; i < arr.length; i++){
+    if (arr[i].obj.name == name){
       console.log("elemento a borrar");
+      console.log(i);
       console.log(arr[i]);
-      var name = arr[i].obj.name;
       arr.splice(i);
       break;
     } 
   }
+  var x = document.getElementById("comboBox");
+  x.remove(x.selectedIndex);
+  var x2 = document.getElementById("comboBoxEdit");
+  x2.remove(i);
   console.log(scene.getObjectByName(name));
   scene.remove(scene.getObjectByName(name));
+}
+
+function editFigure(){
+  var name = document.getElementById("comboBoxEdit").value;
+  console.log("objeto a editar");
+  console.log(name);
+  var objeto = scene.getObjectByName(name);
+  var x = parseFloat(document.getElementById("new-text-x").value);
+  var y = parseFloat(document.getElementById("new-text-y").value);
+  var z = parseFloat(document.getElementById("new-text-z").value);
+  var size = parseFloat(document.getElementById("new-size").value);
+  objeto.position.set(x, y, z);
+  objeto.scale.set(size, size, size);
 }
 
 function changeColor(){

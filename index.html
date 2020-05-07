@@ -29,6 +29,7 @@
       document.getElementById("dodecahedron-fig").style.display = "none";
       document.getElementById("octahedron-fig").style.display = "none";
       document.getElementById("divBorrarFigura").style.display = "none";
+      document.getElementById("divEditarFigura").style.display = "none";
     }
     function toggleAnimation() {
       document.getElementById("divEdicion").style.display = "none";
@@ -45,6 +46,7 @@
       document.getElementById("dodecahedron-fig").style.display = "none";
       document.getElementById("octahedron-fig").style.display = "none";
       document.getElementById("divBorrarFigura").style.display = "none";
+      document.getElementById("divEditarFigura").style.display = "none";
     }
     function toggleSquare() {
       document.getElementById("divEdicion").style.display = "none";
@@ -111,10 +113,32 @@
       document.getElementById("dodecahedron-fig").style.display = "none";
       document.getElementById("octahedron-fig").style.display = "none";
       document.getElementById("divBorrarFigura").style.display = "block";
+      document.getElementById("divEditarFigura").style.display = "none";
+    }
+    function toggleEditFigure() {
+      document.getElementById("divEdicion").style.display = "none";
+      document.getElementById("divAnimacion").style.display = "none";
+      document.getElementById("divEdicionFigura").style.display = "none";
+      document.getElementById("square-fig").style.display = "none";
+      document.getElementById("sphere-fig").style.display = "none";
+      document.getElementById("cylinder-fig").style.display = "none";
+      document.getElementById("cone-fig").style.display = "none";
+      document.getElementById("tetrahedron-fig").style.display = "none";
+      document.getElementById("torus-fig").style.display = "none";
+      document.getElementById("torusknot-fig").style.display = "none";
+      document.getElementById("icosahedron-fig").style.display = "none";
+      document.getElementById("dodecahedron-fig").style.display = "none";
+      document.getElementById("octahedron-fig").style.display = "none";
+      document.getElementById("divBorrarFigura").style.display = "none";
+      document.getElementById("divEditarFigura").style.display = "block";
     }
   </script>
   <div id="divEdicionFigura">
     <button id="button-back" onclick="toggleEdit()">Back</button>
+    <br>
+    <input type="radio" id="radio-wire" name="texture" value="wire">Wireframe</input>
+    <input type="radio" id="radio-color" name="texture" checked="checked" value="color">Color</input>
+    <input type="radio" id="radio-texture" name="texture" value="color">Textura</input>
     <br>
     <b>Color</b>
     <br><input id="color-palette" class="action" src="imgs/pallete.png" type="color" name="name" value="#ffffff" onclick="toolsEventHandler('10');" onchange="toolsEventHandler('10');">
@@ -203,20 +227,27 @@
   <div id="divBorrarFigura">
     <button id="button-back" onclick="toggleEdit()">Back</button>
     <br><br>
-    <button id="button-delete" style="margin: 10px; width: 30%; height: 5%;" onclick="deleteFigure('cube')">Delete Cube</button>
-    <button id="button-delete" style="margin: 10px; width: 30%; height: 5%;" onclick="deleteFigure('sphere')">Delete Sphere</button>
-    <br>
-    <button id="button-delete" style="margin: 10px; width: 30%; height: 5%;" onclick="deleteFigure('cylinder')">Delete Cylinder</button>
-    <button id="button-delete" style="margin: 10px; width: 30%; height: 5%;" onclick="deleteFigure('cone')">Delete Cone</button>
-    <br>
-    <button id="button-delete" style="margin: 10px; width: 30%; height: 5%;" onclick="deleteFigure('tetrahedron')">Delete Tetrahedron</button>
-    <button id="button-delete" style="margin: 10px; width: 30%; height: 5%;" onclick="deleteFigure('torus')">Delete Torus</button>
-    <br>
-    <button id="button-delete" style="margin: 10px; width: 30%; height: 5%;" onclick="deleteFigure('torusknot')">Delete Torus Knot</button>
-    <button id="button-delete" style="margin: 10px; width: 30%; height: 5%;" onclick="deleteFigure('icosahedron')">Delete Icosahedron</button>
-    <br>
-    <button id="button-delete" style="margin: 10px; width: 30%; height: 5%;" onclick="deleteFigure('dodecahedron')">Delete Dodecahedron</button>
-    <button id="button-delete" style="margin: 10px; width: 30%; height: 5%;" onclick="deleteFigure('octahedron')">Delete Octahedron</button>
+    <select id="comboBox"></select>
+    <br><br>
+    <button id="button-delete" style="margin: 10px; width: 30%; height: 5%;" onclick="deleteFigure()">Delete Figure</button>
+  </div>
+  <div id="divEditarFigura">
+    <button id="button-back" onclick="toggleEdit()">Back</button>
+    <br><br>
+    <select id="comboBoxEdit"></select>
+    <br><br>
+    <b>Posicion</b>
+        <br>
+        x:<input id="new-text-x" type="text" value="0" size="5" style="text-align:right;">
+        <br>
+        y:<input id="new-text-y" type="text" value="0" size="5" style="text-align:right;">
+        <br>
+        z:<input id="new-text-z" type="text" value="0" size="5" style="text-align:right;">
+        <br>
+        Nuevo Tamaño:<input id="new-size" type="text" value="1" size="5" style="text-align:right;">
+        <br>
+
+    <button id="button-delete" style="margin: 10px; width: 30%; height: 5%;" onclick="editFigure()">Edit Figure</button>
   </div>
   <div id="divEdicion">
     <table>
@@ -245,7 +276,7 @@
         <td><img id="img-circle" class="action" src="imgs/Octahedron.png" alt="" onclick="toggleOctahedron();"/></td>
       </tr>
       <tr>
-        <td><img id="img-circle" class="action" src="imgs/logo.png" alt="" onclick="toggleGeomety();"/></td>
+        <td><img id="img-circle" class="action" src="imgs/selector.png" alt="" onclick="toggleEditFigure();"/></td>
         <td><img id="img-eraser" class="action" src="imgs/eraser.png" alt="" onclick="toggleDelete();"/></td>
       </tr>
     </table>
