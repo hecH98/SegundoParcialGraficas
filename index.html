@@ -13,19 +13,36 @@
   <div id="divEdicionFigura">
     <button id="button-back" onclick="toggleEdit()">Back</button>
     <br>
+    <br>
     <input type="radio" id="radio-wire" name="texture" value="wire">Wireframe</input>
     <input type="radio" id="radio-color" name="texture" checked="checked" value="color">Color</input>
-    <input type="radio" id="radio-material" name="texture" checked="checked" value="Material">Material</input>
+    <input type="radio" id="radio-material" name="texture" value="Material">Material</input>
     <div>
       <br>
       <b>Color</b>
+      <br>
       <input id="color-palette" class="action" src="imgs/pallete.png" type="color" name="name" value="#ffffff" onclick="toolsEventHandler('10');" onchange="toolsEventHandler('10');">
       <br>
-      <br>
     </div>
+    <br>
+    <b>Material</b>
+    <br>
     <div>
-      <Button id="Materialbutton" src="imgs/pallete.png" onclick="toggleMaterial()">Material</Button>
-      
+      <table>
+        <tr><td><img id="img-basic-material" class="action" src="imgs/normal.png" alt="" onclick="selectMaterial(1);"/></td>
+          <td><img id="img-depth-material" class="action" src="imgs/depth.png" alt="" onclick="selectMaterial(2);"/></td>
+          <td><img id="img-distance-material" class="action" src="imgs/lambert.png" alt="" onclick="selectMaterial(3);"/></td>
+        </tr>
+        <tr>
+          <td><img id="img-lambert-material" class="action" src="imgs/lambert.png" alt="" onclick="selectMaterial(4);"/></td>
+          <td><img id="img-matcap-material" class="action" src="imgs/matcap.png" alt="" onclick="selectMaterial(5);"/></td>
+          <td><img id="img-phong-material" class="action" src="imgs/phong.png" alt="" onclick="selectMaterial(6);"/></td>
+        </tr>
+        <tr>
+          <td><img id="img-physical-material" class="action" src="imgs/physical.png" alt="" onclick="selectMaterial(7);"/></td>
+          <td><img id="img-toon-material" class="action" src="imgs/toon.png" alt="" onclick="selectMaterial(8);"/></td>
+        </tr>
+      </table>
     </div>
     <br>
     
@@ -124,12 +141,8 @@
 
   <div id="divMateriales">
     <table>
-      <tr><td><img id="img-plane-on" class="action" src="imgs/planeOn.png" alt="" onclick="alert('aa')"/></td>
+      <tr><td><img id="img-basic-material" class="action" src="imgs/cube.png" alt="" onclick="selectMaterial(1);toggleSquare();"/></td>
         <td><img id="img-plane-off" class="action" src="imgs/planeOff.png" alt="" onclick="alert('aa')"/></td>
-      </tr>
-      <tr>
-        <td><img id="img-plane-on" class="action" src="imgs/planeOn.png" alt="" onclick="planeOn();"/></td>
-        <td><img id="img-plane-off" class="action" src="imgs/planeOff.png" alt="" onclick="planeOff();"/></td>
       </tr>
       <tr>
         <td><img id="img-point" class="action" src="imgs/Box.png" alt="" onclick="toggleSquare();"/></td>
@@ -310,7 +323,7 @@
     
     <!-- ----- NUEVO ---- -->
 
-    <script src="/js/toggleHtml.js"></script>
+    <script src="./js/toggleHtml.js"></script>
     <script src="js/event-handler.js" type="text/javascript"></script>
     <script src="js/main.js"  type="text/javascript"></script>
     

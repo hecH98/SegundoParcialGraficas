@@ -14,6 +14,7 @@ var cubos, esferas, cilindros, conos, tetrahedros, torus, torusknots, icosahedro
 var color;
 var isRotating = true;
 // var controls;
+var materialSelected;
 
 function main()
 {  
@@ -40,7 +41,7 @@ function main()
     renderer.setClearColor("black");                    
 
     // LIGHTS
-    light = new THREE.AmbientLight();
+    var light = new THREE.AmbientLight( 0x404040 ); // soft white light
 
     // CAMERAS
     camera = new THREE.PerspectiveCamera(60., canvas.width / canvas.height, 0.01, 10000.);  // CAMERA
