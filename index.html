@@ -10,137 +10,25 @@
   <h1>My Paint Scene 3D</h1>
   <button type="button" onclick="toggleEdit()">Edit mode</button>
   <button type="button" onclick="toggleAnimation()">Animation mode</button>
-  <script>
-    function toggleEdit() {
-      document.getElementById("divEdicion").style.display = "block";
-      document.getElementById("divAnimacion").style.display = "none";
-      document.getElementById("divEdicionFigura").style.display = "none";
-      document.getElementById("divEdicionFigura").style.display = "none";
-      document.getElementById("square-fig").style.display = "none";
-      document.getElementById("sphere-fig").style.display = "none";
-      document.getElementById("cylinder-fig").style.display = "none";
-      document.getElementById("cone-fig").style.display = "none";
-      document.getElementById("tetrahedron-fig").style.display = "none";
-      document.getElementById("torus-fig").style.display = "none";
-      document.getElementById("torusknot-fig").style.display = "none";
-      document.getElementById("icosahedron-fig").style.display = "none";
-      document.getElementById("dodecahedron-fig").style.display = "none";
-      document.getElementById("octahedron-fig").style.display = "none";
-      document.getElementById("divBorrarFigura").style.display = "none";
-      document.getElementById("divEditarFigura").style.display = "none";
-    }
-    function toggleAnimation() {
-      document.getElementById("divEdicion").style.display = "none";
-      document.getElementById("divAnimacion").style.display = "block";
-      document.getElementById("divEdicionFigura").style.display = "none";
-      document.getElementById("square-fig").style.display = "none";
-      document.getElementById("sphere-fig").style.display = "none";
-      document.getElementById("cylinder-fig").style.display = "none";
-      document.getElementById("cone-fig").style.display = "none";
-      document.getElementById("tetrahedron-fig").style.display = "none";
-      document.getElementById("torus-fig").style.display = "none";
-      document.getElementById("torusknot-fig").style.display = "none";
-      document.getElementById("icosahedron-fig").style.display = "none";
-      document.getElementById("dodecahedron-fig").style.display = "none";
-      document.getElementById("octahedron-fig").style.display = "none";
-      document.getElementById("divBorrarFigura").style.display = "none";
-      document.getElementById("divEditarFigura").style.display = "none";
-    }
-    function toggleSquare() {
-      document.getElementById("divEdicion").style.display = "none";
-      document.getElementById("divEdicionFigura").style.display = "block";
-      document.getElementById("square-fig").style.display = "block";
-    }
-    function toggleSphere(){
-      document.getElementById("divEdicion").style.display = "none";
-      document.getElementById("divEdicionFigura").style.display = "block";
-      document.getElementById("sphere-fig").style.display = "block";
-    }
-    function toggleCylinder() {
-      document.getElementById("divEdicion").style.display = "none";
-      document.getElementById("divEdicionFigura").style.display = "block";
-      document.getElementById("cylinder-fig").style.display = "block";
-    }
-    function toggleCone() {
-      document.getElementById("divEdicion").style.display = "none";
-      document.getElementById("divEdicionFigura").style.display = "block";
-      document.getElementById("cone-fig").style.display = "block";
-    }
-    function toggleTetrahedron() {
-      document.getElementById("divEdicion").style.display = "none";
-      document.getElementById("divEdicionFigura").style.display = "block";
-      document.getElementById("tetrahedron-fig").style.display = "block";
-    }
-    function toggleTorus() {
-      document.getElementById("divEdicion").style.display = "none";
-      document.getElementById("divEdicionFigura").style.display = "block";
-      document.getElementById("torus-fig").style.display = "block";
-    }
-    function toggleTorusKnot() {
-      document.getElementById("divEdicion").style.display = "none";
-      document.getElementById("divEdicionFigura").style.display = "block";
-      document.getElementById("torusknot-fig").style.display = "block";
-    }
-    function toggleIcosahedron() {
-      document.getElementById("divEdicion").style.display = "none";
-      document.getElementById("divEdicionFigura").style.display = "block";
-      document.getElementById("icosahedron-fig").style.display = "block";
-    }
-    function toggleDodecahedron() {
-      document.getElementById("divEdicion").style.display = "none";
-      document.getElementById("divEdicionFigura").style.display = "block";
-      document.getElementById("dodecahedron-fig").style.display = "block";
-    }
-    function toggleOctahedron() {
-      document.getElementById("divEdicion").style.display = "none";
-      document.getElementById("divEdicionFigura").style.display = "block";
-      document.getElementById("octahedron-fig").style.display = "block";
-    }
-    function toggleDelete() {
-      document.getElementById("divEdicion").style.display = "none";
-      document.getElementById("divAnimacion").style.display = "none";
-      document.getElementById("divEdicionFigura").style.display = "none";
-      document.getElementById("square-fig").style.display = "none";
-      document.getElementById("sphere-fig").style.display = "none";
-      document.getElementById("cylinder-fig").style.display = "none";
-      document.getElementById("cone-fig").style.display = "none";
-      document.getElementById("tetrahedron-fig").style.display = "none";
-      document.getElementById("torus-fig").style.display = "none";
-      document.getElementById("torusknot-fig").style.display = "none";
-      document.getElementById("icosahedron-fig").style.display = "none";
-      document.getElementById("dodecahedron-fig").style.display = "none";
-      document.getElementById("octahedron-fig").style.display = "none";
-      document.getElementById("divBorrarFigura").style.display = "block";
-      document.getElementById("divEditarFigura").style.display = "none";
-    }
-    function toggleEditFigure() {
-      document.getElementById("divEdicion").style.display = "none";
-      document.getElementById("divAnimacion").style.display = "none";
-      document.getElementById("divEdicionFigura").style.display = "none";
-      document.getElementById("square-fig").style.display = "none";
-      document.getElementById("sphere-fig").style.display = "none";
-      document.getElementById("cylinder-fig").style.display = "none";
-      document.getElementById("cone-fig").style.display = "none";
-      document.getElementById("tetrahedron-fig").style.display = "none";
-      document.getElementById("torus-fig").style.display = "none";
-      document.getElementById("torusknot-fig").style.display = "none";
-      document.getElementById("icosahedron-fig").style.display = "none";
-      document.getElementById("dodecahedron-fig").style.display = "none";
-      document.getElementById("octahedron-fig").style.display = "none";
-      document.getElementById("divBorrarFigura").style.display = "none";
-      document.getElementById("divEditarFigura").style.display = "block";
-    }
-  </script>
   <div id="divEdicionFigura">
     <button id="button-back" onclick="toggleEdit()">Back</button>
     <br>
     <input type="radio" id="radio-wire" name="texture" value="wire">Wireframe</input>
     <input type="radio" id="radio-color" name="texture" checked="checked" value="color">Color</input>
-    <input type="radio" id="radio-texture" name="texture" value="color">Textura</input>
+    <input type="radio" id="radio-material" name="texture" checked="checked" value="Material">Material</input>
+    <div>
+      <br>
+      <b>Color</b>
+      <input id="color-palette" class="action" src="imgs/pallete.png" type="color" name="name" value="#ffffff" onclick="toolsEventHandler('10');" onchange="toolsEventHandler('10');">
+      <br>
+      <br>
+    </div>
+    <div>
+      <Button id="Materialbutton" src="imgs/pallete.png" onclick="toggleMaterial()">Material</Button>
+      
+    </div>
     <br>
-    <b>Color</b>
-    <br><input id="color-palette" class="action" src="imgs/pallete.png" type="color" name="name" value="#ffffff" onclick="toolsEventHandler('10');" onchange="toolsEventHandler('10');">
-    <br>
+    
     <b>Posicion</b>
         <br>
         x:<input id="text-x" type="text" value="0" size="5" style="text-align:right;">
@@ -158,6 +46,17 @@
         <br>
         <button id="btn-create" onclick="createCube();toggleEdit();">Ok</button>  
       </div>
+
+      <div id="extra-fig">
+        <td><button onclick = "seleccionaArchivo()">ImportModel</button></td>
+        <br>
+        Tamaño Figura:<input id="extra-size" type="text" value="1" size="5" style="text-align:right;">
+        <br>
+        <b>Crear Figura</b>
+        <br>
+        <button id="btn-create" onclick="import3DModel();toggleEdit();">Ok</button>  
+      </div>
+
       <div id="sphere-fig">
         Radio Esfera:<input id="sphere-radius" type="text" value="1" size="5" style="text-align:right;">
         <br>
@@ -221,8 +120,44 @@
         <br>
         <button id="btn-create" onclick="createOctahedron();toggleEdit();">Ok</button>  
       </div>
-      
   </div>
+
+  <div id="divMateriales">
+    <table>
+      <tr><td><img id="img-plane-on" class="action" src="imgs/planeOn.png" alt="" onclick="alert('aa')"/></td>
+        <td><img id="img-plane-off" class="action" src="imgs/planeOff.png" alt="" onclick="alert('aa')"/></td>
+      </tr>
+      <tr>
+        <td><img id="img-plane-on" class="action" src="imgs/planeOn.png" alt="" onclick="planeOn();"/></td>
+        <td><img id="img-plane-off" class="action" src="imgs/planeOff.png" alt="" onclick="planeOff();"/></td>
+      </tr>
+      <tr>
+        <td><img id="img-point" class="action" src="imgs/Box.png" alt="" onclick="toggleSquare();"/></td>
+        <td><img id="img-point" class="action" src="imgs/Sphere.png" alt="" onclick="toggleSphere();"/></td>
+      </tr>
+      <tr>
+        <td><img id="img-polygon" class="action" src="imgs/Cilinder.png" alt="" onclick="toggleCylinder();"/></td>
+        <td><img id="img-triangle" class="action" src="imgs/Cone.png" alt="" onclick="toggleCone();"/></td>
+      </tr>
+      <tr>
+        <td><img id="img-line-width" class="action" src="imgs/Tetrahedron.png" alt="" onclick="toggleTetrahedron();"/></td>
+        <td><img id="img-rectangle" class="action" src="imgs/Torus.png" alt="" onclick="toggleTorus();"/></td>
+      </tr>
+      <tr>
+        <td><img id="img-fill-polygon" class="action" src="imgs/TorusKnot.png" alt="" onclick="toggleTorusKnot();"/></td>
+        <td><img id="img-circle" class="action" src="imgs/Icosahedron.png" alt="" onclick="toggleIcosahedron();"/></td>
+      </tr>
+      <tr>
+        <td><img id="img-fill-polygon" class="action" src="imgs/Dodecahedron.png" alt="" onclick="toggleDodecahedron();"/></td>
+        <td><img id="img-circle" class="action" src="imgs/Octahedron.png" alt="" onclick="toggleOctahedron();"/></td>
+      </tr>
+      <tr>
+        <td><img id="img-circle" class="action" src="imgs/selector.png" alt="" onclick="toggleEditFigure();"/></td>
+        <td><img id="img-eraser" class="action" src="imgs/eraser.png" alt="" onclick="toggleDelete();"/></td>
+      </tr>
+    </table>
+  </div>
+
   <div id="divBorrarFigura">
     <button id="button-back" onclick="toggleEdit()">Back</button>
     <br><br>
@@ -276,12 +211,13 @@
         <td><img id="img-circle" class="action" src="imgs/Octahedron.png" alt="" onclick="toggleOctahedron();"/></td>
       </tr>
       <tr>
+        <td><img id="img-extra" class="action" src="imgs/extra.png" alt="" onclick="toggleExtra3D()"/></td>
+      </tr>
+      <tr>
         <td><img id="img-circle" class="action" src="imgs/selector.png" alt="" onclick="toggleEditFigure();"/></td>
         <td><img id="img-eraser" class="action" src="imgs/eraser.png" alt="" onclick="toggleDelete();"/></td>
       </tr>
-      <tr>
-        <td><button onclick = "import3DModel()">ImportModel</button></td>
-      </tr>
+      
       
         
     </table>
@@ -365,11 +301,21 @@
 
 
     <script src="js/lib/three.min.js" type="text/javascript"></script>
-    <script src="js/event-handler.js" type="text/javascript"></script>
+
+    <!-- ----- NUEVO ---- -->
+
+    <script src="http://threejs.org/build/three.min.js"></script>
+		<script src="http://threejs.org/examples/js/loaders/OBJLoader.js"></script>
+    <script src="http://threejs.org/examples/js/libs/stats.min.js"></script>
     
-    <!-- <script src="node_modules\three\src\Three.js" type="text/javascript"></script> -->
-    <!-- <script src= "https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.js"></script> -->
+    <!-- ----- NUEVO ---- -->
+
+    <script src="/js/toggleHtml.js"></script>
+    <script src="js/event-handler.js" type="text/javascript"></script>
     <script src="js/main.js"  type="text/javascript"></script>
-    <!-- <script src="/js/importFile.js"  type="module"></script> -->
+    
+
+
+
 </body>
 </html>

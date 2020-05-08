@@ -34,13 +34,28 @@ function toolsEventHandler(evt) {
   }
 }
 
+function selectMaterial(material){
+  // var 
+  //   switch(material){
+  //     case 1:
+
+  //     case 2:
+        
+  //     break;
+  //   }
+}
+
+
 function createCube() {
   var geometry = new THREE.BoxGeometry();
   var isWire = document.getElementById("radio-wire").checked;
-  var isTexture = document.getElementById("radio-texture").checked;
-  // var material = new THREE.MeshDepthMaterial({color: 0x2194ce, wireframe: false });
   
-  var material = new THREE.MeshBasicMaterial({color: color, wireframe: isWire });
+  // if (!document.getElementById("radio-material").checked){
+    // var material = new THREE.MeshBasicMaterial({color: color, wireframe: isWire });
+  // }else{
+    var material = new THREE.MeshDepthMaterial();
+  // }
+
   var cube = new THREE.Mesh(geometry, material);
   cube.name="cubos" + cubos++;
   var x = parseFloat(document.getElementById("text-x").value);
@@ -64,7 +79,6 @@ function createCube() {
 function createSphere() {
   var geometry = new THREE.SphereGeometry();
   var isWire = document.getElementById("radio-wire").checked;
-  var isTexture = document.getElementById("radio-texture").checked;
   var material = new THREE.MeshBasicMaterial( {color: color, wireframe: isWire } );
   var sphere = new THREE.Mesh( geometry, material );
   sphere.name = "esferas" + esferas++;
@@ -90,7 +104,6 @@ function createSphere() {
 function createCylinder(){
   var geometry = new THREE.CylinderGeometry();
   var isWire = document.getElementById("radio-wire").checked;
-  var isTexture = document.getElementById("radio-texture").checked;
   var material = new THREE.MeshBasicMaterial( {color: color, wireframe: isWire } );
   var cylinder = new THREE.Mesh( geometry, material );
   cylinder.name = "cilindros" + cilindros++;
@@ -117,7 +130,6 @@ function crearObjetoCompuesto() {
 function createCone(){
   var geometry = new THREE.ConeGeometry();
   var isWire = document.getElementById("radio-wire").checked;
-  var isTexture = document.getElementById("radio-texture").checked;
   var material = new THREE.MeshBasicMaterial( {color: color, wireframe: isWire } );
   var cone = new THREE.Mesh( geometry, material );
   cone.name = "conos" + conos++;
@@ -138,7 +150,6 @@ function createCone(){
 function createTetrahedron(){
   var geometry = new THREE.TetrahedronGeometry();
   var isWire = document.getElementById("radio-wire").checked;
-  var isTexture = document.getElementById("radio-texture").checked;
   var material = new THREE.MeshBasicMaterial( {color: color, wireframe: isWire } );
   var tetrahedron = new THREE.Mesh( geometry, material );
   tetrahedron.name = "tetrahedros" + tetrahedros++;
@@ -159,7 +170,6 @@ function createTetrahedron(){
 function createTorus(){
   var geometry = new THREE.TorusGeometry();
   var isWire = document.getElementById("radio-wire").checked;
-  var isTexture = document.getElementById("radio-texture").checked;
   var material = new THREE.MeshBasicMaterial( { color: color, wireframe: isWire  } );
   var torus2 = new THREE.Mesh( geometry, material );
   torus2.name = "torus" + torus++;
@@ -180,7 +190,6 @@ function createTorus(){
 function createTorusKnot(){
   var geometry = new THREE.TorusKnotGeometry();
   var isWire = document.getElementById("radio-wire").checked;
-  var isTexture = document.getElementById("radio-texture").checked;
   var material = new THREE.MeshBasicMaterial( { color: color, wireframe: isWire  } );
   var torusknot = new THREE.Mesh( geometry, material );
   torusknot.name = "torusknot" + torusknots++;
@@ -201,8 +210,7 @@ function createTorusKnot(){
 function createIcosahedron(){
   var geometry = new THREE.IcosahedronGeometry();
   var isWire = document.getElementById("radio-wire").checked;
-  var isTexture = document.getElementById("radio-texture").checked;
-  var material = new THREE.MeshBasicMaterial( { color: color, wireframe: isWire  } );
+  var faterial = new THREE.MeshBasicMaterial( { color: color, wireframe: isWire  } );
   var icosahedron = new THREE.Mesh( geometry, material );
   icosahedron.name = "icosahedron" + icosahedrons++;
   var x = parseFloat(document.getElementById("text-x").value);
@@ -222,7 +230,6 @@ function createIcosahedron(){
 function createDodecahedron(){
   var geometry = new THREE.DodecahedronGeometry();
   var isWire = document.getElementById("radio-wire").checked;
-  var isTexture = document.getElementById("radio-texture").checked;
   var material = new THREE.MeshBasicMaterial( { color: color, wireframe: isWire} );
   var dodecahedron = new THREE.Mesh( geometry, material );
   dodecahedron.name = "icosahedron" + dodecahedrons++;
@@ -243,7 +250,6 @@ function createDodecahedron(){
 function createOctahedron(){
   var geometry = new THREE.OctahedronGeometry();
   var isWire = document.getElementById("radio-wire").checked;
-  var isTexture = document.getElementById("radio-texture").checked;
   var material = new THREE.MeshBasicMaterial( { color: color, wireframe: isWire } );
   var octahedron = new THREE.Mesh( geometry, material );
   octahedron.name = "octahedron" + octahedrons++;
@@ -262,20 +268,33 @@ function createOctahedron(){
 }
 
 function import3DModel(){
-    //importModel();
 
-    
-    // const objLoader = new OBJLoader2();
-    // objLoader.load('https://threejsfundamentals.org/threejs/resources/models/windmill/windmill.obj', (root) => {
-    //   scene.add(root);
-    // });
-    // let loader = new THREE.GLTFLoader();
-    // loader.load('/3DModels/E 45 Aircraft_obj.obj', function(gltf){
-    //   car = gltf.scene.children[0];
-    //   car.scale.set(0.5,0.5,0.5);
-    //   scene.add(gltf.scene);
-    //   animate();
-    // });
+  var manager = new THREE.LoadingManager();
+  manager.onProgress = function ( item, loaded, total ) {
+      console.log( item, loaded, total );
+  };
+  var loader = new THREE.OBJLoader( manager );
+  loader.load( '/3DModels/avion.obj', function ( object ) {
+
+  object.traverse( function ( child ) {
+
+      if ( child instanceof THREE.Mesh ) {
+          // child.material.map = texture;
+      }
+  });
+  var x = parseFloat(document.getElementById("text-x").value);
+  var y = parseFloat(document.getElementById("text-y").value);
+  var z = parseFloat(document.getElementById("text-z").value);
+  object.position.set(x, y, z);
+  scene.add(object);
+  object.name = "extra" + extras++;
+  arr.push({"obj" : object, "figura" : "extra"});
+  addCombo(object.name);
+  addComboEdit(object.name);
+});
+}
+
+function seleccionaModelo(){
 
 }
 

@@ -31,6 +31,16 @@ img {
 	display: block;
 }
 
+#divMateriales {
+	width: 20%;
+	padding: 50px 0;
+	text-align: center;
+	background-color: lightblue;
+	margin-top: 20px;
+	float: left;
+	display: none;
+}
+
 #divEdicionFigura {
 	width: 20%;
 	padding: 50px 0;
@@ -60,6 +70,7 @@ img {
 	float: left;
 	display: none;
 }
+
 
 #comboBox {
 	width: 45%;
@@ -96,6 +107,9 @@ img {
 	display: none;
 }
 #octahedron-fig {
+	display: none;
+}
+#extra-fig{
 	display: none;
 }
 

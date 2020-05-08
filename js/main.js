@@ -10,40 +10,13 @@ var mesh;
 var sceneReady = false;
 var arr = [];
 var hasPlane = false;
-var cubos, esferas, cilindros, conos, tetrahedros, torus, torusknots, icosahedrons, dodecahedrons, octahedrons, geometriasCompuestas;
+var cubos, esferas, cilindros, conos, tetrahedros, torus, torusknots, icosahedrons, dodecahedrons, octahedrons, geometriasCompuestas, extras;
 var color;
 var isRotating = true;
 // var controls;
 
 function main()
 {  
-    
-    
-    // var loader = OBJLoader();
-    // // load a resource
-    // loader.load(
-	// // resource URL
-	// '/3DModels/E 45 Aircraft_obj.obj',
-	// // called when resource is loaded
-	// function ( object ) {
-	// 	scene.add( object );
-	// },
-	// // called when loading is in progresses
-	// function ( xhr ) {
-	// 	console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
-	// },
-	// // called when loading has errors
-	// function ( error ) {
-
-	// 	console.log( 'An error happened' );
-
-	// }
-    // );
-
-
-    
-    
-    
     cubos = 0;
     esferas = 0;
     cilindros = 0;
@@ -55,6 +28,8 @@ function main()
     dodecahedrons=0;
     octahedrons=0;
     geometriasCompuestas=0;
+    extras =0;
+
     
     color = document.getElementById("color-palette").value;
     // RENDERER
@@ -89,6 +64,8 @@ function main()
 
     // ACTION
     requestAnimationFrame(renderLoop);              // RENDER LOOP
+
+    
     
 }
 
