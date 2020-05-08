@@ -35,14 +35,36 @@ function toolsEventHandler(evt) {
 }
 
 function selectMaterial(material){
-  // var 
-  //   switch(material){
-  //     case 1:
-
-  //     case 2:
+    switch(material){
+      case 1:
+        materialSelected = new THREE.MeshNormalMaterial();
+        break;
+      case 2:
+        materialSelected = new THREE.MeshDepthMaterial({color: "gray"});
+        break;
+      case 3:
+        materialSelected = new THREE.MeshDistanceMaterial({color: "gray"});
+        break;
+      case 4:
+        materialSelected = new THREE.MeshLambertMaterial({color: "blue", emissive: "skyblue", emissiveIntensity: 0.5});
         
-  //     break;
-  //   }
+        break;
+      case 5:
+        materialSelected = new THREE.MeshMatcapMaterial({color: "red"});
+        break;
+      case 6:
+        materialSelected = new THREE.MeshPhongMaterial({color: "blue", specular: "white", shininess: 2});
+        break;
+      case 7:
+        materialSelected = new THREE.MeshPhysicalMaterial({color: "purple"});
+        break;
+      case 8:
+        materialSelected = new THREE.MeshToonMaterial({color: "orange"});
+        break;
+      default:
+        new THREE.MeshBasicMaterial({color: color, wireframe: false });
+        break;
+    }
 }
 
 
@@ -50,12 +72,11 @@ function createCube() {
   var geometry = new THREE.BoxGeometry();
   var isWire = document.getElementById("radio-wire").checked;
   
-  // if (!document.getElementById("radio-material").checked){
-    // var material = new THREE.MeshBasicMaterial({color: color, wireframe: isWire });
-  // }else{
-    var material = new THREE.MeshDepthMaterial();
-  // }
-
+  if (!document.getElementById("radio-material").checked){
+    var material = new THREE.MeshBasicMaterial({color: color, wireframe: isWire });
+  }else{
+    var material = materialSelected;
+  }
   var cube = new THREE.Mesh(geometry, material);
   cube.name="cubos" + cubos++;
   var x = parseFloat(document.getElementById("text-x").value);
@@ -79,7 +100,11 @@ function createCube() {
 function createSphere() {
   var geometry = new THREE.SphereGeometry();
   var isWire = document.getElementById("radio-wire").checked;
-  var material = new THREE.MeshBasicMaterial( {color: color, wireframe: isWire } );
+  if (!document.getElementById("radio-material").checked){
+    var material = new THREE.MeshBasicMaterial({color: color, wireframe: isWire });
+  }else{
+    var material = materialSelected;
+  }
   var sphere = new THREE.Mesh( geometry, material );
   sphere.name = "esferas" + esferas++;
   var x = parseFloat(document.getElementById("text-x").value);
@@ -104,7 +129,11 @@ function createSphere() {
 function createCylinder(){
   var geometry = new THREE.CylinderGeometry();
   var isWire = document.getElementById("radio-wire").checked;
-  var material = new THREE.MeshBasicMaterial( {color: color, wireframe: isWire } );
+  if (!document.getElementById("radio-material").checked){
+    var material = new THREE.MeshBasicMaterial({color: color, wireframe: isWire });
+  }else{
+    var material = materialSelected;
+  }
   var cylinder = new THREE.Mesh( geometry, material );
   cylinder.name = "cilindros" + cilindros++;
   var x = parseFloat(document.getElementById("text-x").value);
@@ -130,7 +159,11 @@ function crearObjetoCompuesto() {
 function createCone(){
   var geometry = new THREE.ConeGeometry();
   var isWire = document.getElementById("radio-wire").checked;
-  var material = new THREE.MeshBasicMaterial( {color: color, wireframe: isWire } );
+  if (!document.getElementById("radio-material").checked){
+    var material = new THREE.MeshBasicMaterial({color: color, wireframe: isWire });
+  }else{
+    var material = materialSelected;
+  }
   var cone = new THREE.Mesh( geometry, material );
   cone.name = "conos" + conos++;
   var x = parseFloat(document.getElementById("text-x").value);
@@ -168,7 +201,11 @@ function createSilla(){
 function createTetrahedron(){
   var geometry = new THREE.TetrahedronGeometry();
   var isWire = document.getElementById("radio-wire").checked;
-  var material = new THREE.MeshBasicMaterial( {color: color, wireframe: isWire } );
+  if (!document.getElementById("radio-material").checked){
+    var material = new THREE.MeshBasicMaterial({color: color, wireframe: isWire });
+  }else{
+    var material = materialSelected;
+  }
   var tetrahedron = new THREE.Mesh( geometry, material );
   tetrahedron.name = "tetrahedros" + tetrahedros++;
   var x = parseFloat(document.getElementById("text-x").value);
@@ -188,7 +225,11 @@ function createTetrahedron(){
 function createTorus(){
   var geometry = new THREE.TorusGeometry();
   var isWire = document.getElementById("radio-wire").checked;
-  var material = new THREE.MeshBasicMaterial( { color: color, wireframe: isWire  } );
+  if (!document.getElementById("radio-material").checked){
+    var material = new THREE.MeshBasicMaterial({color: color, wireframe: isWire });
+  }else{
+    var material = materialSelected;
+  }
   var torus2 = new THREE.Mesh( geometry, material );
   torus2.name = "torus" + torus++;
   var x = parseFloat(document.getElementById("text-x").value);
@@ -208,7 +249,11 @@ function createTorus(){
 function createTorusKnot(){
   var geometry = new THREE.TorusKnotGeometry();
   var isWire = document.getElementById("radio-wire").checked;
-  var material = new THREE.MeshBasicMaterial( { color: color, wireframe: isWire  } );
+  if (!document.getElementById("radio-material").checked){
+    var material = new THREE.MeshBasicMaterial({color: color, wireframe: isWire });
+  }else{
+    var material = materialSelected;
+  }
   var torusknot = new THREE.Mesh( geometry, material );
   torusknot.name = "torusknot" + torusknots++;
   var x = parseFloat(document.getElementById("text-x").value);
@@ -228,7 +273,11 @@ function createTorusKnot(){
 function createIcosahedron(){
   var geometry = new THREE.IcosahedronGeometry();
   var isWire = document.getElementById("radio-wire").checked;
-  var faterial = new THREE.MeshBasicMaterial( { color: color, wireframe: isWire  } );
+  if (!document.getElementById("radio-material").checked){
+    var material = new THREE.MeshBasicMaterial({color: color, wireframe: isWire });
+  }else{
+    var material = materialSelected;
+  }
   var icosahedron = new THREE.Mesh( geometry, material );
   icosahedron.name = "icosahedron" + icosahedrons++;
   var x = parseFloat(document.getElementById("text-x").value);
@@ -248,7 +297,11 @@ function createIcosahedron(){
 function createDodecahedron(){
   var geometry = new THREE.DodecahedronGeometry();
   var isWire = document.getElementById("radio-wire").checked;
-  var material = new THREE.MeshBasicMaterial( { color: color, wireframe: isWire} );
+  if (!document.getElementById("radio-material").checked){
+    var material = new THREE.MeshBasicMaterial({color: color, wireframe: isWire });
+  }else{
+    var material = materialSelected;
+  }
   var dodecahedron = new THREE.Mesh( geometry, material );
   dodecahedron.name = "icosahedron" + dodecahedrons++;
   var x = parseFloat(document.getElementById("text-x").value);
@@ -268,7 +321,11 @@ function createDodecahedron(){
 function createOctahedron(){
   var geometry = new THREE.OctahedronGeometry();
   var isWire = document.getElementById("radio-wire").checked;
-  var material = new THREE.MeshBasicMaterial( { color: color, wireframe: isWire } );
+  if (!document.getElementById("radio-material").checked){
+    var material = new THREE.MeshBasicMaterial({color: color, wireframe: isWire });
+  }else{
+    var material = materialSelected;
+  }
   var octahedron = new THREE.Mesh( geometry, material );
   octahedron.name = "octahedron" + octahedrons++;
   var x = parseFloat(document.getElementById("text-x").value);
