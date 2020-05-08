@@ -3,7 +3,7 @@
     <title>threejs</title>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="css/my-style.css">
-    
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 </head>
 
 <body onload = main();>
@@ -75,9 +75,25 @@
       </div>
 
       <div id="extra-fig">
-        <td><button onclick = "seleccionaArchivo()">ImportModel</button></td>
         <br>
         Tamaño Figura:<input id="extra-size" type="text" value="1" size="5" style="text-align:right;">
+        <br>
+        <br>
+        <!-- <button id="ChooseFile">Open</button>
+        <input id="file-input" type="file" name="name" style="display: none;" />
+        <script>
+          $('#ChooseFile').on('click', function() {
+              $('#file-input').trigger('click');
+              console.log(document.getElementById("file-input").value);
+          }); -->
+          <div>
+            <b>OBJ:</b>
+            <input type="file" id="file" accept=".obj">
+            <input type="submit" id="submit">
+          </div>
+          
+        </script>
+        <!-- <td><button onclick = "seleccionaModelo()">ImportModel</button></td> -->
         <br>
         <b>Crear Figura</b>
         <br>
