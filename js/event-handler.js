@@ -490,7 +490,7 @@ function clickSubmitEventListener(event)
 	var fileName;
 	try
 	{
-		fileName = "/3DModels/" + document.getElementById("file").files[0].name;
+		fileName = "./3DModels/" + document.getElementById("file").files[0].name;
 	} 
 	catch(err)
 	{
