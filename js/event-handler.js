@@ -34,13 +34,53 @@ function toolsEventHandler(evt) {
   }
 }
 
+function selectMaterial(material){
+    switch(material){
+      case 1:
+        materialSelected = new THREE.MeshNormalMaterial();
+        break;
+      case 2:
+        materialSelected = new THREE.MeshDepthMaterial({color: "gray"});
+        break;
+      case 3:
+        materialSelected = new THREE.MeshDistanceMaterial({color: "gray"});
+        break;
+      case 4:
+        materialSelected = new THREE.MeshLambertMaterial({color: "blue", emissive: "skyblue", emissiveIntensity: 0.5});
+        
+        break;
+      case 5:
+        materialSelected = new THREE.MeshMatcapMaterial({color: "red"});
+        break;
+      case 6:
+        materialSelected = new THREE.MeshPhongMaterial({color: "blue", specular: "white", shininess: 2});
+        break;
+      case 7:
+        materialSelected = new THREE.MeshPhysicalMaterial({color: "purple"});
+        break;
+      case 8:
+        materialSelected = new THREE.MeshToonMaterial({color: "orange"});
+        break;
+      default:
+        new THREE.MeshBasicMaterial({color: color, wireframe: false });
+        break;
+    }
+}
+
+
 function createCube() {
   var geometry = new THREE.BoxGeometry();
   var isWire = document.getElementById("radio-wire").checked;
-  var isTexture = document.getElementById("radio-texture").checked;
-  // var material = new THREE.MeshDepthMaterial({color: 0x2194ce, wireframe: false });
-  
-  var material = new THREE.MeshBasicMaterial({color: color, wireframe: isWire });
+  var texture = new THREE.TextureLoader().load("/imgs/" + document.getElementById("comboBoxTextura").value);
+  if (document.getElementById("radio-wire").checked || document.getElementById("radio-color").checked){
+    var material = new THREE.MeshBasicMaterial({color: color, wireframe: isWire});
+    
+  }else if(document.getElementById("radio-material").checked){
+      var material = materialSelected;
+  }
+  else{
+    var material = new THREE.MeshBasicMaterial( { map: texture } );
+  }
   var cube = new THREE.Mesh(geometry, material);
   cube.name="cubos" + cubos++;
   var x = parseFloat(document.getElementById("text-x").value);
@@ -64,8 +104,16 @@ function createCube() {
 function createSphere() {
   var geometry = new THREE.SphereGeometry();
   var isWire = document.getElementById("radio-wire").checked;
-  var isTexture = document.getElementById("radio-texture").checked;
-  var material = new THREE.MeshBasicMaterial( {color: color, wireframe: isWire } );
+  var texture = new THREE.TextureLoader().load("/imgs/" + document.getElementById("comboBoxTextura").value);
+  if (document.getElementById("radio-wire").checked || document.getElementById("radio-color").checked){
+    var material = new THREE.MeshBasicMaterial({color: color, wireframe: isWire});
+    
+  }else if(document.getElementById("radio-material").checked){
+      var material = materialSelected;
+  }
+  else{
+    var material = new THREE.MeshBasicMaterial( { map: texture } );
+  }
   var sphere = new THREE.Mesh( geometry, material );
   sphere.name = "esferas" + esferas++;
   var x = parseFloat(document.getElementById("text-x").value);
@@ -90,8 +138,16 @@ function createSphere() {
 function createCylinder(){
   var geometry = new THREE.CylinderGeometry();
   var isWire = document.getElementById("radio-wire").checked;
-  var isTexture = document.getElementById("radio-texture").checked;
-  var material = new THREE.MeshBasicMaterial( {color: color, wireframe: isWire } );
+  var texture = new THREE.TextureLoader().load("/imgs/" + document.getElementById("comboBoxTextura").value);
+  if (document.getElementById("radio-wire").checked || document.getElementById("radio-color").checked){
+    var material = new THREE.MeshBasicMaterial({color: color, wireframe: isWire});
+    
+  }else if(document.getElementById("radio-material").checked){
+      var material = materialSelected;
+  }
+  else{
+    var material = new THREE.MeshBasicMaterial( { map: texture } );
+  }
   var cylinder = new THREE.Mesh( geometry, material );
   cylinder.name = "cilindros" + cilindros++;
   var x = parseFloat(document.getElementById("text-x").value);
@@ -108,17 +164,20 @@ function createCylinder(){
   sceneReady = true;
 }
 
-function crearObjetoCompuesto() {
-  // var g = new geometru();
-  // g.name = "geometriaCompuesta" = geometriasCompuestas++;
-  // arr.push({"obj" : g, "figura" : "geometriaCompuesta"});
-}
 
 function createCone(){
   var geometry = new THREE.ConeGeometry();
   var isWire = document.getElementById("radio-wire").checked;
-  var isTexture = document.getElementById("radio-texture").checked;
-  var material = new THREE.MeshBasicMaterial( {color: color, wireframe: isWire } );
+  var texture = new THREE.TextureLoader().load("/imgs/" + document.getElementById("comboBoxTextura").value);
+  if (document.getElementById("radio-wire").checked || document.getElementById("radio-color").checked){
+    var material = new THREE.MeshBasicMaterial({color: color, wireframe: isWire});
+    
+  }else if(document.getElementById("radio-material").checked){
+      var material = materialSelected;
+  }
+  else{
+    var material = new THREE.MeshBasicMaterial( { map: texture } );
+  }
   var cone = new THREE.Mesh( geometry, material );
   cone.name = "conos" + conos++;
   var x = parseFloat(document.getElementById("text-x").value);
@@ -135,11 +194,37 @@ function createCone(){
   sceneReady = true;
 }
 
+function createSilla(){
+  var silla = new Chair();
+  silla.name = "silla" + sillas++;
+  var x = parseFloat(document.getElementById("text-x").value);
+  var y = parseFloat(document.getElementById("text-y").value);
+  var z = parseFloat(document.getElementById("text-z").value);
+  var size = parseFloat(document.getElementById("silla-size").value);
+  silla.position.set(x, y, z);
+  silla.scale.set(size, size, size);
+  scene.add(silla);
+  arr.push({"obj" : silla, "figura" : "silla"});
+  addCombo(silla.name);
+  addComboEdit(silla.name);
+  mesh = silla;
+  sceneReady = true;
+}
+
+
 function createTetrahedron(){
   var geometry = new THREE.TetrahedronGeometry();
   var isWire = document.getElementById("radio-wire").checked;
-  var isTexture = document.getElementById("radio-texture").checked;
-  var material = new THREE.MeshBasicMaterial( {color: color, wireframe: isWire } );
+  var texture = new THREE.TextureLoader().load("/imgs/" + document.getElementById("comboBoxTextura").value);
+  if (document.getElementById("radio-wire").checked || document.getElementById("radio-color").checked){
+    var material = new THREE.MeshBasicMaterial({color: color, wireframe: isWire});
+    
+  }else if(document.getElementById("radio-material").checked){
+      var material = materialSelected;
+  }
+  else{
+    var material = new THREE.MeshBasicMaterial( { map: texture } );
+  }
   var tetrahedron = new THREE.Mesh( geometry, material );
   tetrahedron.name = "tetrahedros" + tetrahedros++;
   var x = parseFloat(document.getElementById("text-x").value);
@@ -159,8 +244,16 @@ function createTetrahedron(){
 function createTorus(){
   var geometry = new THREE.TorusGeometry();
   var isWire = document.getElementById("radio-wire").checked;
-  var isTexture = document.getElementById("radio-texture").checked;
-  var material = new THREE.MeshBasicMaterial( { color: color, wireframe: isWire  } );
+  var texture = new THREE.TextureLoader().load("/imgs/" + document.getElementById("comboBoxTextura").value);
+  if (document.getElementById("radio-wire").checked || document.getElementById("radio-color").checked){
+    var material = new THREE.MeshBasicMaterial({color: color, wireframe: isWire});
+    
+  }else if(document.getElementById("radio-material").checked){
+      var material = materialSelected;
+  }
+  else{
+    var material = new THREE.MeshBasicMaterial( { map: texture } );
+  }
   var torus2 = new THREE.Mesh( geometry, material );
   torus2.name = "torus" + torus++;
   var x = parseFloat(document.getElementById("text-x").value);
@@ -180,8 +273,16 @@ function createTorus(){
 function createTorusKnot(){
   var geometry = new THREE.TorusKnotGeometry();
   var isWire = document.getElementById("radio-wire").checked;
-  var isTexture = document.getElementById("radio-texture").checked;
-  var material = new THREE.MeshBasicMaterial( { color: color, wireframe: isWire  } );
+  var texture = new THREE.TextureLoader().load("/imgs/" + document.getElementById("comboBoxTextura").value);
+  if (document.getElementById("radio-wire").checked || document.getElementById("radio-color").checked){
+    var material = new THREE.MeshBasicMaterial({color: color, wireframe: isWire});
+    
+  }else if(document.getElementById("radio-material").checked){
+      var material = materialSelected;
+  }
+  else{
+    var material = new THREE.MeshBasicMaterial( { map: texture } );
+  }
   var torusknot = new THREE.Mesh( geometry, material );
   torusknot.name = "torusknot" + torusknots++;
   var x = parseFloat(document.getElementById("text-x").value);
@@ -201,8 +302,16 @@ function createTorusKnot(){
 function createIcosahedron(){
   var geometry = new THREE.IcosahedronGeometry();
   var isWire = document.getElementById("radio-wire").checked;
-  var isTexture = document.getElementById("radio-texture").checked;
-  var material = new THREE.MeshBasicMaterial( { color: color, wireframe: isWire  } );
+  var texture = new THREE.TextureLoader().load("/imgs/" + document.getElementById("comboBoxTextura").value);
+  if (document.getElementById("radio-wire").checked || document.getElementById("radio-color").checked){
+    var material = new THREE.MeshBasicMaterial({color: color, wireframe: isWire});
+    
+  }else if(document.getElementById("radio-material").checked){
+      var material = materialSelected;
+  }
+  else{
+    var material = new THREE.MeshBasicMaterial( { map: texture } );
+  }
   var icosahedron = new THREE.Mesh( geometry, material );
   icosahedron.name = "icosahedron" + icosahedrons++;
   var x = parseFloat(document.getElementById("text-x").value);
@@ -222,8 +331,16 @@ function createIcosahedron(){
 function createDodecahedron(){
   var geometry = new THREE.DodecahedronGeometry();
   var isWire = document.getElementById("radio-wire").checked;
-  var isTexture = document.getElementById("radio-texture").checked;
-  var material = new THREE.MeshBasicMaterial( { color: color, wireframe: isWire} );
+  var texture = new THREE.TextureLoader().load("/imgs/" + document.getElementById("comboBoxTextura").value);
+  if (document.getElementById("radio-wire").checked || document.getElementById("radio-color").checked){
+    var material = new THREE.MeshBasicMaterial({color: color, wireframe: isWire});
+    
+  }else if(document.getElementById("radio-material").checked){
+      var material = materialSelected;
+  }
+  else{
+    var material = new THREE.MeshBasicMaterial( { map: texture } );
+  }
   var dodecahedron = new THREE.Mesh( geometry, material );
   dodecahedron.name = "icosahedron" + dodecahedrons++;
   var x = parseFloat(document.getElementById("text-x").value);
@@ -243,8 +360,16 @@ function createDodecahedron(){
 function createOctahedron(){
   var geometry = new THREE.OctahedronGeometry();
   var isWire = document.getElementById("radio-wire").checked;
-  var isTexture = document.getElementById("radio-texture").checked;
-  var material = new THREE.MeshBasicMaterial( { color: color, wireframe: isWire } );
+  var texture = new THREE.TextureLoader().load("/imgs/" + document.getElementById("comboBoxTextura").value);
+  if (document.getElementById("radio-wire").checked || document.getElementById("radio-color").checked){
+    var material = new THREE.MeshBasicMaterial({color: color, wireframe: isWire});
+    
+  }else if(document.getElementById("radio-material").checked){
+      var material = materialSelected;
+  }
+  else{
+    var material = new THREE.MeshBasicMaterial( { map: texture } );
+  }
   var octahedron = new THREE.Mesh( geometry, material );
   octahedron.name = "octahedron" + octahedrons++;
   var x = parseFloat(document.getElementById("text-x").value);
@@ -262,20 +387,35 @@ function createOctahedron(){
 }
 
 function import3DModel(){
-    //importModel();
 
-    
-    // const objLoader = new OBJLoader2();
-    // objLoader.load('https://threejsfundamentals.org/threejs/resources/models/windmill/windmill.obj', (root) => {
-    //   scene.add(root);
-    // });
-    // let loader = new THREE.GLTFLoader();
-    // loader.load('/3DModels/E 45 Aircraft_obj.obj', function(gltf){
-    //   car = gltf.scene.children[0];
-    //   car.scale.set(0.5,0.5,0.5);
-    //   scene.add(gltf.scene);
-    //   animate();
-    // });
+  var manager = new THREE.LoadingManager();
+  manager.onProgress = function ( item, loaded, total ) {
+      console.log( item, loaded, total );
+  };
+  var loader = new THREE.OBJLoader( manager );
+  loader.load( '/3DModels/avion.obj', function ( object ) {
+
+  object.traverse( function ( child ) {
+
+      if ( child instanceof THREE.Mesh ) {
+          // child.material.map = texture;
+      }
+  });
+  var x = parseFloat(document.getElementById("text-x").value);
+  var y = parseFloat(document.getElementById("text-y").value);
+  var z = parseFloat(document.getElementById("text-z").value);
+  var size = parseFloat(document.getElementById("extra-size").value);
+  object.position.set(x, y, z);
+  object.position.set(size,size,size)
+  scene.add(object);
+  object.name = "extra" + extras++;
+  arr.push({"obj" : object, "figura" : "extra"});
+  addCombo(object.name);
+  addComboEdit(object.name);
+});
+}
+
+function seleccionaModelo(){
 
 }
 
