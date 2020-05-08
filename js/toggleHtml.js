@@ -16,6 +16,7 @@ function toggleEdit() {
       document.getElementById("divBorrarFigura").style.display = "none";
       document.getElementById("divEditarFigura").style.display = "none";
       document.getElementById("divMateriales").style.display = "none";
+      document.getElementById("silla-fig").style.display = "none";
     }
     function toggleAnimation() {
       document.getElementById("divEdicion").style.display = "none";
@@ -34,6 +35,7 @@ function toggleEdit() {
       document.getElementById("divBorrarFigura").style.display = "none";
       document.getElementById("divEditarFigura").style.display = "none";
       document.getElementById("divMateriales").style.display = "none";
+      document.getElementById("silla-fig").style.display = "none";
     }
     function toggleSquare() {
       document.getElementById("divEdicion").style.display = "none";
@@ -101,6 +103,12 @@ function toggleEdit() {
         document.getElementById("extra-fig").style.display = "block";
         document.getElementById("divMateriales").style.display = "none";
       }
+      function toggleSilla() {
+        document.getElementById("divEdicion").style.display = "none";
+        document.getElementById("divEdicionFigura").style.display = "block";
+        document.getElementById("silla-fig").style.display = "block";
+        document.getElementById("divMateriales").style.display = "none";
+      }
 
     function toggleDelete() {
       document.getElementById("divEdicion").style.display = "none";
@@ -119,6 +127,7 @@ function toggleEdit() {
       document.getElementById("divBorrarFigura").style.display = "block";
       document.getElementById("divEditarFigura").style.display = "none";
       document.getElementById("divMateriales").style.display = "none";
+      document.getElementById("silla-fig").style.display = "none";
     }
     function toggleEditFigure() {
       document.getElementById("divEdicion").style.display = "none";
@@ -137,6 +146,7 @@ function toggleEdit() {
       document.getElementById("divBorrarFigura").style.display = "none";
       document.getElementById("divEditarFigura").style.display = "block";
       document.getElementById("divMateriales").style.display = "none";
+      document.getElementById("silla-fig").style.display = "none";
     }
     function toggleMaterial(){
       document.getElementById("divEdicion").style.display = "none";
@@ -155,5 +165,6 @@ function toggleEdit() {
       document.getElementById("divBorrarFigura").style.display = "none";
       document.getElementById("divEditarFigura").style.display = "none";
       document.getElementById("divMateriales").style.display = "block";
+      document.getElementById("silla-fig").style.display = "none";
     }
     

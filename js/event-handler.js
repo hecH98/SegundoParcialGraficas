@@ -147,6 +147,24 @@ function createCone(){
   sceneReady = true;
 }
 
+function createSilla(){
+  var silla = new Chair();
+  silla.name = "silla" + sillas++;
+  var x = parseFloat(document.getElementById("text-x").value);
+  var y = parseFloat(document.getElementById("text-y").value);
+  var z = parseFloat(document.getElementById("text-z").value);
+  var size = parseFloat(document.getElementById("silla-size").value);
+  silla.position.set(x, y, z);
+  silla.scale.set(size, size, size);
+  scene.add(silla);
+  arr.push({"obj" : silla, "figura" : "silla"});
+  addCombo(silla.name);
+  addComboEdit(silla.name);
+  mesh = silla;
+  sceneReady = true;
+}
+
+
 function createTetrahedron(){
   var geometry = new THREE.TetrahedronGeometry();
   var isWire = document.getElementById("radio-wire").checked;
@@ -285,7 +303,9 @@ function import3DModel(){
   var x = parseFloat(document.getElementById("text-x").value);
   var y = parseFloat(document.getElementById("text-y").value);
   var z = parseFloat(document.getElementById("text-z").value);
+  var size = parseFloat(document.getElementById("extra-size").value);
   object.position.set(x, y, z);
+  object.position.set(size,size,size)
   scene.add(object);
   object.name = "extra" + extras++;
   arr.push({"obj" : object, "figura" : "extra"});
